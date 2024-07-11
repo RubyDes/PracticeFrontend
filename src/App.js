@@ -25,6 +25,7 @@ export class App extends React.Component {
           <Routes>
             <Route path="/" element={<HomePage items={this.state.item} />}/>           
             <Route path="/ShowDopInfo/:id" element={<Layout />} />
+            {this.state.ShowFullItem && <ShowDopInfo />}
           </Routes>
 
         </div>    
@@ -32,17 +33,5 @@ export class App extends React.Component {
       //<div>Shop and Buy</div>
     );   
   }  
-    /*Вызывается при нажатии на товар*/
-    // onShowInfo(items) {
-    //   this.setState({DopInfo: items})
-    //   this.setState({ShowDopInfo: !this.state.ShowDopInfo})
-    // } 
-
-
-    // addToOrder(item) {
-    //   this.setState({orders: [...this.state.orders, item] })
-    // }
-
-
 }
 export default App;

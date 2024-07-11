@@ -3,6 +3,8 @@ import Items from './Items'
 import Header from './Header'
 import Footer from './Footer'
 import Layout from './Layout'
+import ProductInfo from './ProductInfo'
+import ShowDopInfo from './ShowDopInfo'
 
 export class HomePage extends React.Component {
   constructor(props) {
@@ -53,9 +55,9 @@ export class HomePage extends React.Component {
           </div>
         </div>
         <Items onShowInfo={this.onShowInfo} items={this.state.items} onAdd={this.addToOrder}/>
-        {this.state.ShowDopInfo && <Layout onShowInfo={this.onShowInfo} item={this.state.DopInfo} />} 
+        {this.state.ShowDopInfo && <ShowDopInfo item={this.state.DopInfo} onAdd={this.addToOrder} onShowInfo={this.onShowInfo}/> /*onShowInfo={this.onShowInfo} item={this.state.DopInfo} />*/} 
 
-        {/* <Footer /> */}
+        <Footer />
       </div>
     )
   }

@@ -5,23 +5,6 @@ import Item from './Item'
 //import Items from './Item'
 import Layout from './Layout'
 import Order from './Order'
-/**Функции для проверки, есть ли в корзине товары, если нет: "Cart empty" */
-const showOrders = (props) => {
-  let sum = 0;
-  props.orders.forEach(el => sum += Number.parseFloat(el.price));
-  return(<div>
-    {props.orders.map(el =>(
-      <Order onDelete = {props.onDelete} key={el.id} item={el} />
-    ))}
-    <p className='sum'>Price all products: {new Intl.NumberFormat().format(sum)}$</p>
-  </div>)
-}
-
-const showNothing = () => {
-  return(<div className = 'empty'>
-    <h2>Cart empty</h2>
-  </div>)
-}
 
 class ShowDopInfo extends React.Component {
 
@@ -29,9 +12,16 @@ class ShowDopInfo extends React.Component {
   render() {
     return (
       <div className='dop__info'>
-        <h1>Dop Information</h1>
-          <div className='item'>
+        <div className='dop_info_second' >
+          <img src={"./img/" + this.props.item.bigimg} alt='' onClick={() => this.props.onShowInfo(this.props.item)} />
+          <h2>{this.props.item.title} </h2>
+          <p>{this.props.item.comment} </p>
+          <b>{this.props.item.price} </b>
+
+          <div onClick={() => this.props.onAdd(this.props.item)}>
+            <button>{this.props.item.click} </button>
           </div>
+        </div>
       </div>
     )
   }

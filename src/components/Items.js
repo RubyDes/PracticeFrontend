@@ -20,7 +20,7 @@ export class Items extends Component {
             <div className='banner'></div>
             {this.props.items.map(el => (
                 /*<h1>{el.title}</h1>*/
-                <Item items = {this.props.items} key={el.id} item={el} onAdd={this.props.onAdd}/>
+                <Item onShowInfo = {this.props.onShowInfo} items = {this.props.items} key={el.id} item={el} onAdd={this.props.onAdd}/>
             ))}  
             </div>      
         </div> 
